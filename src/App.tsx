@@ -12,7 +12,7 @@ function App() {
         backgroundColor: "#DAC7C8",
         height: '100vh'
       }}>
-        <Button variant="contained" sx={{
+        <Button onClick={upload} variant="contained" sx={{
           size: "large",
           color: "#E7D5E5", // # 赤(0〜255) 緑(0〜255) 青(0〜255) => #00FF00 RedGreenBlue
           backgroundColor: "#FFFFFF",
@@ -26,7 +26,9 @@ function App() {
 
 export default App;
 
-
+function upload() {
+  console.log("OK");
+}
 
 /* <html> 開始タグ
   <img src="https://image.com/12345" /> 開始&終了タグ
