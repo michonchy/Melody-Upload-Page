@@ -1,0 +1,23 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-melodyuploader-dev-192446-authRole",
+      "UnauthRoleArn": "arn:aws:iam::981377450937:role/amplify-melodyuploader-dev-192446-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::981377450937:role/amplify-melodyuploader-dev-192446-authRole",
+      "Region": "ap-northeast-1",
+      "DeploymentBucketName": "amplify-melodyuploader-dev-192446-deployment",
+      "UnauthRoleName": "amplify-melodyuploader-dev-192446-unauthRole",
+      "StackName": "amplify-melodyuploader-dev-192446",
+      "StackId": "arn:aws:cloudformation:ap-northeast-1:981377450937:stack/amplify-melodyuploader-dev-192446/1eb7a0c0-bbdd-11ec-b88c-0e6faa67a279",
+      "AmplifyAppId": "d2czufkjyn70t8"
+    },
+    "categories": {
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "d2czufkjyn70t8",
+          "type": "manual"
+        }
+      }
+    }
+  }
+}

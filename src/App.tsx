@@ -58,11 +58,11 @@ export default App;
 function upload(file: File) {
   console.log("OK",file);
   s3.upload({
-    Bucket: "melody-api-app.development.movie-contents",
-    Key: file.name, 
+    Bucket: "melody-api-development-movie-contents",
+    Key: "movie/"+file.name, 
     Body: file,
     ACL: "public-read"
-  }, (data, error) => {
+  }, (error, data) => {
     console.log({data});
     console.log({error});
   });
