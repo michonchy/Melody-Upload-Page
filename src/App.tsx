@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { Box, Button, createTheme, ThemeProvider } from '@mui/material';
 import { Input } from '@mui/material';
 import AWS from "aws-sdk";
+import axios from 'axios';
 
 
 AWS.config.update({
@@ -19,6 +20,14 @@ const s3 = new AWS.S3({
 const theme = createTheme();
 function App() {
   const [file, setFile] = useState(undefined as (File | undefined));
+  const [musics, setMusics] = useState([] as Array<string>);
+  const musicURL = "https://9u3kgnfgt1.execute-api.ap-northeast-1.amazonaws.com/development/music"
+  useEffect(() => {
+    axios.get(musicURL).then((response) => {
+      console.log(response.data)
+      setMusics(response.data.musics);
+    });
+  }, []);
   return (
     <ThemeProvider theme={theme} >
       <Box justifyContent={"center"} alignItems={"center"} sx={{
@@ -46,6 +55,13 @@ function App() {
               background: "#E7D5E5"
             },
           }}>Upload</Button>
+          {
+            musics.map((music) => {
+              return (
+                <li key={music}>{music}</li>
+              )
+            })
+          }
         </Box>
         
       </Box>
