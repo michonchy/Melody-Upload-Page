@@ -112,7 +112,7 @@ const theme = createTheme({
       main: orange[900],
     },
     secondary: {
-      main: 'white',
+      main: '#fff',
       contrastText: '#ffcc00',
     },
     text: {
@@ -134,11 +134,11 @@ function App() {
               setTabIndex(newValue);
             }} aria-label="basic tabs example">
               <Tab sx={{
-                color: "red"
+                color: "#aaa"
               }} label="Item One" {...a11yProps(0)} />
               <Tab sx={{
                 
-                color: "red"
+                color: "#aaa"
               }}  label="Item Two" {...a11yProps(1)} />
             </Tabs>
       </Box>
