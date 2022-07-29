@@ -55,8 +55,12 @@ function UploadView() {
             }} type="file" name="file1" id="file1" /><br /><br />
           <Button variant="contained" component="span" onClick={async () => {
             if (file) {
-              const result = await upload(file);
-              setStatus(result.toString());
+              try {
+                const result = await upload(file);
+                setStatus(result.toString());
+              }catch (error: any) {
+                setStatus(error)
+              }  
             }
           }} 
           // sx={{
@@ -181,20 +185,24 @@ export default App;
 function upload(file: File): Promise<AWS.S3.ManagedUpload.SendData> {
   console.log("OK",file);
   return new Promise((resolve, reject) => {
-    s3.upload({
-      Bucket: "melody-api-development-movie-contents",
-      Key: "movie/"+file.name, 
-      Body: file,
-      ACL: "public-read"
-    }, (error, data) => {
-      if (error !== undefined) {
-        console.log({error});
-        reject(error);
-      } else {
-        console.log({data});
-        resolve(data);
-      }
-    });
+    try{
+      s3.upload({
+        Bucket: "melody-api-development-movie-contents",
+        Key: "movie/"+file.name, 
+        Body: file,
+        ACL: "public-read"
+      }, (error, data) => {
+        if (error !== undefined) {
+          console.log({error});
+          reject(error);
+        } else {
+          console.log({data});
+          resolve(data);
+        }
+      });
+    } catch(error) {
+      reject(error)
+    }
   });
 }
 
